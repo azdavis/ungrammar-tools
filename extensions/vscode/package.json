@@ -1,0 +1,44 @@
+{
+  "private": true,
+  "name": "ungrammar",
+  "displayName": "Ungrammar",
+  "version": "0.1.0",
+  "preview": true,
+  "description": "Ungrammar support for VSCode",
+  "publisher": "azdavis",
+  "author": "Ariel Davis <ariel.z.davis@icloud.com>",
+  "repository": {
+    "url": "https://github.com/azdavis/ungrammar-tools.git",
+    "type": "git"
+  },
+  "scripts": {
+    "package": "vsce package"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "ungrammar",
+        "extensions": [
+          ".ungram"
+        ],
+        "aliases": [
+          "Ungrammar"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ungrammar",
+        "scopeName": "source.ungrammar",
+        "path": "./syntaxes/ungrammar.tmLanguage.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.52.0"
+  },
+  "devDependencies": {
+    "vsce": "^1.85.1"
+  }
+}

@@ -1,0 +1,3 @@
+*.vsix
+/.vscode/cspell.json
+/extensions/vscode/node_modules
