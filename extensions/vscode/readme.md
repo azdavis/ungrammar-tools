@@ -1,6 +1,6 @@
 # ungrammar
 
-[Ungrammar][1] support for VSCode.
+[Ungrammar][1] support for VS Code.
 
 ## Features
 
