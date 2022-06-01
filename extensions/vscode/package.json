@@ -11,6 +11,14 @@
     "url": "https://github.com/azdavis/ungrammar-tools.git",
     "type": "git"
   },
+  "license": "MIT",
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "ungrammar",
+    "rowan"
+  ],
   "scripts": {
     "package": "vsce package",
     "publish": "vsce publish"
