@@ -10,18 +10,22 @@ fi
 cd "$(dirname "$0")"
 cd ..
 
-echo 'installing deps'
+header() {
+  echo "==> $1"
+}
+
+header 'installing deps'
 sudo apt-get update
 sudo apt-get install jq
 
-echo 'entering vscode dir'
+header 'entering vscode dir'
 cd editors/vscode
 
-echo 'copying license'
+header 'copying license'
 cp ../../LICENSE.md .
 
 check_version() {
-  echo "checking github ref version is same as '$1' in $2"
+  header "checking github ref version is same as '$1' in $2"
   got="v$(jq -r "$1" "$2")"
   if [ "$GITHUB_REF_NAME" != "$got" ]; then
     echo "mismatch"
@@ -35,16 +39,16 @@ check_version '.version' package.json
 check_version '.version' package-lock.json
 check_version '.packages."".version' package-lock.json
 
-echo 'installing node deps'
+header 'installing node deps'
 npm ci
 
-echo 'building vsix'
+header 'building vsix'
 npx --no-install vsce package
 
-echo 'publishing to vs code marketplace'
+header 'publishing to vs code marketplace'
 npx --no-install vsce publish --pat "$AZURE_MARKETPLACE_TOKEN" --packagePath *.vsix
 
-echo 'publishing to open vsx'
+header 'publishing to open vsx'
 npx --no-install ovsx publish --pat "$OPEN_VSX_TOKEN" --packagePath *.vsix
 
-echo 'ok'
+header 'ok'
