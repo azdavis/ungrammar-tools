@@ -27,6 +27,7 @@ check_version() {
     echo "mismatch"
     echo "  want: $GITHUB_REF_NAME"
     echo "  got:  $got"
+    exit 1
   fi
 }
 
