@@ -14,20 +14,25 @@ echo 'installing deps'
 sudo apt-get update
 sudo apt-get install jq
 
-echo 'checking package json version is same as github ref version'
-pj="v$(jq -r '.version' editors/vscode/package.json)"
-if [ "$GITHUB_REF_NAME" != "$pj" ]; then
-  echo 'mismatch'
-  echo "  github ref:   $GITHUB_REF_NAME"
-  echo "  package json: $pj"
-  exit 1
-fi
-
-echo 'copying license'
-cp LICENSE.md editors/vscode
-
 echo 'entering vscode dir'
 cd editors/vscode
+
+echo 'copying license'
+cp ../../LICENSE.md .
+
+check_version() {
+  echo "checking github ref version is same as '$1' in $2"
+  got="v$(jq -r "$1" "$2")"
+  if [ "$GITHUB_REF_NAME" != "$got" ]; then
+    echo "mismatch"
+    echo "  want: $GITHUB_REF_NAME"
+    echo "  got:  $got"
+  fi
+}
+
+check_version '.version' package.json
+check_version '.version' package-lock.json
+check_version '.packages."".version' package-lock.json
 
 echo 'installing node deps'
 npm ci
