@@ -6,6 +6,8 @@ Tools for [ungrammar][1].
 
 ## Install
 
-The VS Code extension is available on the [marketplace][].
+- The VS Code extension is available on the [marketplace][].
+- The same extension is also on [Open VSX][ovsx].
 
 [marketplace]: https://marketplace.visualstudio.com/items?itemName=azdavis.ungrammar
+[ovsx]: https://open-vsx.org/extension/azdavis/ungrammar
