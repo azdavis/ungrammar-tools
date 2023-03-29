@@ -3,8 +3,7 @@
   "name": "ungrammar",
   "displayName": "Ungrammar",
   "version": "0.1.1",
-  "preview": true,
-  "description": "Ungrammar support for VS Code",
+  "description": "Ungrammar support",
   "publisher": "azdavis",
   "author": "Ariel Davis <ariel.z.davis@icloud.com>",
   "repository": {
