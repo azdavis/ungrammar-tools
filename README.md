@@ -2,7 +2,7 @@
 
 Tools for [ungrammar][1].
 
-[1]: https://github.com/rust-analyzer/ungrammar
+[1]: https://github.com/rust-lang/rust-analyzer/tree/master/lib/ungrammar
 
 ## Install
 
